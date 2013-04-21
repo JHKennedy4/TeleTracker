@@ -5,7 +5,7 @@ import _mysql as mysql
 import simplejson as json
 import time
 import datetime
-import TeleTracker
+from TeleTracker import TeleTracker
 
 if __name__ == "__main__":
 	TeleTracker.run(debug=True)

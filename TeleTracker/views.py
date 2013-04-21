@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from TeleTracker import TeleTracker
 import MySQLdb as mdb
 import _mysql as mysql
@@ -65,7 +65,7 @@ def index():
 
 db = dbhelper();
 
-@app.route("/satdata")
+@TeleTracker.route("/satdata")
 def satdata():
 	start_date = request.args.get('start')
 	end_date = request.args.get('end')
