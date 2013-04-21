@@ -295,19 +295,19 @@ links.Timeline.prototype.draw = function(data, options) {
  * @param {Object} options A name/value map containing settings for the
  *                                 timeline. Optional.
  */
-links.Timeline.prototype.setOptions = function(options) {
+links.Timeline.prototype.setOptions = function (options) {
     if (options) {
         // retrieve parameter values
         for (var i in options) {
-            if (options.hasOwnProperty(i)) {
+            if (this.options.hasOwnProperty(i)) {
                 this.options[i] = options[i];
             }
         }
-        
+
         // prepare i18n dependent on set locale
         if (typeof links.locales !== 'undefined' && this.options.locale !== 'en') {
             var localeOpts = links.locales[this.options.locale];
-            if(localeOpts) {
+            if (localeOpts) {
                 for (var l in localeOpts) {
                     if (localeOpts.hasOwnProperty(l)) {
                         this.options[l] = localeOpts[l];
