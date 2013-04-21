@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from cartodb import CartoDBAPIKey, CartoDBException
 import simplejson as json
 app = Flask(__name__)
@@ -10,9 +11,9 @@ cl = CartoDBAPIKey(API_KEY, cartodb_domain)
 
 @app.route("/")
 def index():
-	data = cl.sql('select * from teletracker where cartodb_id = 2')
-	return json.dumps(data, indent = 2)
+	#data = cl.sql('select * from teletracker where cartodb_id = 2')
+	return render_template('app/index.html') #json.dumps(data, indent = 2)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
