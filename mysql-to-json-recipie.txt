@@ -1,1 +1,0 @@
-http://www.anthonydebarros.com/2012/03/11/generate-json-from-sql-using-python/
