@@ -9,7 +9,7 @@ cl = CartoDBAPIKey(API_KEY, cartodb_domain)
 
 
 @app.route("/")
-def hello():
+def index():
 	data = cl.sql('select * from teletracker where cartodb_id = 2')
 	return json.dumps(data, indent = 2)
 
