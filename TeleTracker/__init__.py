@@ -9,7 +9,7 @@ TeleTracker.config['FREEZER_DESTINATION'] = os.path.dirname(os.path.abspath(__fi
 # Function to easily find your assets
 # In your template use <link rel=stylesheet href="{{ static('filename') }}">
 TeleTracker.jinja_env.globals['static'] = (
-	lambda filename: url_for('/static', filename = filename)
+	lambda filename: url_for('static', filename = filename)
 )
 
 from TeleTracker import views
