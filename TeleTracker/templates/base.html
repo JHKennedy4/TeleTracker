@@ -14,12 +14,50 @@
     <script type="text/javascript" src="{{ static('js/vendors/timeline.js') }}"></script>
     <link rel="stylesheet" href="{{ static('css/timeline.css') }}">
 
+    
+    <!--<link rel="stylesheet" href="{{ static('css/main.css') }}">-->
+    <script type="text/javascript" src="{{ static('js/main.js') }}"></script>
+</head>
+<body onload="drawVisualization();">
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    {% block body %}
+    {% endblock %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendors/jquery-1.8.3.min.js"><\/script>')</script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-affix.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-alert.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-dropdown.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-tooltip.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-modal.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-transition.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-button.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-popover.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-typeahead.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-carousel.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-scrollspy.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-collapse.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-tab.js') }}"></script>
     <script>
         var timeline;
         var data;
 
         // Called when the Visualization API is loaded.
         function drawVisualization() {
+            console.log("Hellooooo!");
             // Create a JSON data table
             data = [
                 {
@@ -79,52 +117,20 @@
             timeline.draw(data, options);
         }
 
-        function click () {
-            console.log("anything?");
-            var date1 = new Date(10000);
-            var date2 = new Date();
-            console.log(date1);
-            $.ajax("/satdata?start="+date1+"&end="+date2);
-            return false;
-        }
+        $(document).ready(function() {
+			// assign buttons
+			
+			var button = document.getElementById('button');
+			button.onclick = function() {
+				//window.location = "/satdata";
+                var date1 = new Date(2013,3,10);
+                var date2 = Date.now();
+                $.ajax("satdata?start="+date1.toString()+"&end="+date2.toString());
+			};
+			
+		});
 
     </script>
-    <!--<link rel="stylesheet" href="{{ static('css/main.css') }}">-->
-    <script type="text/javascript" src="{{ static('js/main.js') }}"></script>
-</head>
-<body>
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
-
-    {% block body %}
-    {% endblock %}
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/vendors/jquery-1.8.3.min.js"><\/script>')</script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-    <!-- build:js scripts/plugins.js -->
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-affix.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-alert.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-dropdown.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-tooltip.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-modal.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-transition.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-button.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-popover.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-typeahead.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-carousel.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-scrollspy.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-collapse.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-tab.js') }}"></script>
     <!-- endbuild -->
 </body>
 </html>

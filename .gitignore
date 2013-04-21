@@ -2,3 +2,5 @@
 *~
 *.pyc
 .sass-cache
+mysqlcreds.txt
+*.swp
