@@ -38,19 +38,7 @@
     </script>
 
     <!-- build:js scripts/plugins.js -->
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-affix.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-alert.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-dropdown.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-tooltip.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-modal.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-transition.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-button.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-popover.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-typeahead.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-carousel.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-scrollspy.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-collapse.js') }}"></script>
-    <script src="{{ static('js/vendors/bootstrap/bootstrap-tab.js') }}"></script>
+    
     <script>
         var timeline;
         var data;
@@ -123,14 +111,25 @@
 			var button = document.getElementById('button');
 			button.onclick = function() {
 				//window.location = "/satdata";
-                var date1 = new Date(2013,3,10);
-                var date2 = Date.now();
-                $.ajax("satdata?start="+date1.toString()+"&end="+date2.toString());
+                $.ajax("satdata?start=2009-1-01&end=2013-4-10");
 			};
 			
 		});
 
     </script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-affix.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-alert.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-dropdown.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-tooltip.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-modal.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-transition.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-button.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-popover.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-typeahead.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-carousel.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-scrollspy.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-collapse.js') }}"></script>
+    <script src="{{ static('js/vendors/bootstrap/bootstrap-tab.js') }}"></script>
     <!-- endbuild -->
 </body>
 </html>
