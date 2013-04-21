@@ -299,7 +299,8 @@ links.Timeline.prototype.setOptions = function (options) {
     if (options) {
         // retrieve parameter values
         for (var i in options) {
-            if (this.options.hasOwnProperty(i)) {
+            console.log(i);
+            if (options.hasOwnProperty(i)) {
                 this.options[i] = options[i];
             }
         }
