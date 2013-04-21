@@ -272,7 +272,7 @@ links.Timeline = function(container) {
  *                                 timeline. Optional.
  */
 links.Timeline.prototype.draw = function(data, options) {
-    this.setOptions(options);
+    //this.setOptions(options);
 
     // read the data
     this.setData(data);
